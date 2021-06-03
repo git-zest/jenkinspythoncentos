@@ -20,7 +20,7 @@ ADD requirements.txt requirements.txt
 
 RUN pip3 install -r requirements.txt
 
-RUN mkdir /home/jenkins
+RUN mkdir -p /home/jenkins
 
 VOLUME /home/jenkins
 

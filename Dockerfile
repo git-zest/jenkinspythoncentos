@@ -40,4 +40,3 @@ RUN chmod 0700 /root/.ssh/id_rsa.pub
 
 VOLUME /home/jenkins
 
-USER 1001

@@ -23,11 +23,18 @@ RUN INSTALL_PKGS="google-chrome-stable chromedriver" && \
     yum clean all  && \
     localedef -f UTF-8 -i en_US en_US.UTF-8
 
+RUN yum install -y xvfb
+
+ENV SCREEN_COLOUR_DEPTH 24
+ENV SCREEN_HEIGHT 1080
+ENV SCREEN_WIDTH 1920
+
 ADD requirements.txt requirements.txt
 
 RUN pip3 install -r requirements.txt
 
 RUN mkdir -p /home/jenkins
+
 
 RUN mkdir -p /root/.ssh && \
 	chmod 0700 /root/.ssh

@@ -23,7 +23,15 @@ RUN INSTALL_PKGS="google-chrome-stable chromedriver" && \
     yum clean all  && \
     localedef -f UTF-8 -i en_US en_US.UTF-8
 
-RUN yum install -y xvfb
+RUN yum install -y xorg-x11-server-Xvfb
+
+COPY Xvfb.service /etc/systemd/system/Xvfb.service
+
+RUN chmod +x /etc/systemd/system/Xvfb.service
+
+RUN systemctl enable Xvfb.service
+
+RUN systemctl start Xvfb.service
 
 ENV SCREEN_COLOUR_DEPTH 24
 ENV SCREEN_HEIGHT 1080

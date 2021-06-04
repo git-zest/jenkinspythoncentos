@@ -3,7 +3,6 @@ FROM openshift/jenkins-slave-maven-centos7:v3.11
 USER root
 
 COPY CertificateCA113.crt /etc/pki/ca-trust/source/anchors/CertificateCA113.crt
-COPY certificate.crt /etc/pki/ca-trust/source/anchors/certificate.crt
 
 RUN yum groupinstall -y 'Development Tools' &&\
     yum install -y epel-release &&\
